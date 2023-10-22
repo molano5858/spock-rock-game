@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --myFont: "Figtree", sans-serif;
+}
 html {
   box-sizing: border-box;
 }
@@ -7,18 +9,14 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-
-  font-family: Lato, sans-serif;
+  font-family: var(--myFont);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-
 .header {
   background: dodgerblue;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,14 +34,21 @@ h1 {
 h2 {
   margin-bottom: 20px;
 }
+p {
+  font-weight: bold;
+}
 
 .far {
   font-size: 50px;
   margin-right: 40px;
-  User-select: none;
+  user-select: none;
 }
-
-
+.reset-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 .reset-icon {
   font-size: 30px;
@@ -66,7 +71,6 @@ h2 {
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
   .game-container {
-
     height: 580px;
   }
 
