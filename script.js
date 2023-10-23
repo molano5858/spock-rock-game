@@ -148,6 +148,7 @@ function reset() {
   computerScoreNumber = 0;
   computerScoreEl.textContent = computerScoreNumber;
   playerScoreEl.textContent = playerScoreNumber;
+  resultText.textContent = "Select your option";
   resetSelected();
 }
 
