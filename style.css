@@ -1,22 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   --myFont: "Figtree", sans-serif;
+  --color1: #2c1933;
+  --color2: #512e5f;
 }
 html {
   box-sizing: border-box;
 }
 
 body {
+  color: white;
   margin: 0;
   min-height: 100vh;
   font-family: var(--myFont);
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1020%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(81%2c 46%2c 95%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c657.107C120.507%2c671.522%2c229.331%2c576.839%2c316.327%2c492.214C393.538%2c417.108%2c428.579%2c313.059%2c459.701%2c209.938C487.327%2c118.4%2c487.513%2c25.732%2c485.964%2c-69.871C484.189%2c-179.429%2c515.63%2c-302.183%2c449.982%2c-389.912C383.922%2c-478.192%2c260.24%2c-497.282%2c151.683%2c-516.586C51.864%2c-534.336%2c-50.21%2c-530.205%2c-145.585%2c-495.818C-237.273%2c-462.761%2c-302.813%2c-390.053%2c-376.431%2c-326.18C-463.004%2c-251.067%2c-604.557%2c-202.569%2c-615.118%2c-88.441C-625.796%2c26.954%2c-489.319%2c97.785%2c-424.554%2c193.887C-372.297%2c271.428%2c-334.341%2c353.004%2c-271.162%2c421.937C-188.651%2c511.963%2c-121.254%2c642.602%2c0%2c657.107' fill='%23492956'%3e%3c/path%3e%3cpath d='M1440 1264.906C1569.117 1229.633 1600.25 1056.384 1707.812 976.7239999999999 1804.423 905.174 1972.52 935.133 2028.754 828.875 2084.467 723.601 2005.1599999999999 597.35 1968.568 484.003 1937.5230000000001 387.839 1884.719 306.47900000000004 1832.232 220.12900000000002 1768.353 115.036 1746.688-48.423 1627.212-77.58699999999999 1506.24-107.11599999999999 1423.063 60.714999999999975 1302.217 90.755 1172.658 122.96100000000001 1009.8140000000001 12.109000000000037 909.95 100.709 813.413 186.358 875.3 348.773 866.291 477.51300000000003 858.031 595.546 826.98 711.383 859.251 825.219 894.923 951.052 953.8489999999999 1075.26 1058.126 1154.208 1165.974 1235.8600000000001 1309.511 1300.554 1440 1264.906' fill='%23593369'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1020'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
 }
 
 .header {
-  background: dodgerblue;
+  background: var(--color1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,33 +29,63 @@ body {
 h1 {
   color: white;
   font-size: 30px;
+  margin: 16px;
+}
+.game-container {
+  box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.2);
+  background-color: var(--color2);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.divider {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 90%;
+  margin: 0 auto;
 }
 
 .player-container {
-  margin: 50px;
+  margin: 8px 24px 24px 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.player-container-options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 
 h2 {
   margin-bottom: 20px;
 }
+
 p {
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .far {
-  font-size: 50px;
-  margin-right: 40px;
+  font-size: 40px;
   user-select: none;
 }
 .reset-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50%;
+  border-radius: 16px;
+  background-color: var(--color1);
+  box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.2);
+  margin: 8px auto;
+  padding: 4px;
 }
 
 .reset-icon {
-  font-size: 30px;
+  font-size: 18px;
   cursor: pointer;
   margin-left: 50px;
 }
@@ -65,13 +99,13 @@ p {
 .result-text {
   font-size: 40px;
   margin: unset;
-  margin-top: 20px;
+  margin-bottom: 24px;
 }
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
   .game-container {
-    height: 580px;
+    width: 90vw;
   }
 
   h1 {
@@ -95,7 +129,7 @@ p {
 /* Media Query: iPhone (Vertical) */
 @media screen and (max-width: 376px) {
   .game-container {
-    height: 550px;
+    width: 90vw;
   }
 
   h1 {
@@ -103,11 +137,11 @@ p {
   }
 
   .player-container {
-    margin: 43px 0 25px 20px;
+    margin: 16px;
   }
 
   .far {
-    font-size: 43px;
+    font-size: 32px;
   }
 
   .reset-icon {
