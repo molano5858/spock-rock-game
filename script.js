@@ -18,6 +18,8 @@ const computerSpock = document.getElementById("computerRock");
 
 const allGameIcons = document.querySelectorAll(".far");
 
+let computerChoice = "";
+
 const choices = {
   rock: { name: "Rock", defeats: ["scissors", "lizard"] },
   paper: { name: "Paper", defeats: ["rock", "spock"] },
@@ -26,8 +28,69 @@ const choices = {
   spock: { name: "Spock", defeats: ["scissors", "rock"] },
 };
 
+// Reset all selected icons
+function resetSelected() {
+  allGameIcons.forEach((icon) => {
+    icon.classList.remove("selected");
+  });
+}
+
+// random computer choice
+function computerRandomChoice() {
+  const computerChoiceNumber = Math.random();
+  if (computerChoiceNumber < 0.2) {
+    computerChoice = "rock";
+  } else if (computerChoiceNumber <= 0.4) {
+    computerChoice = "paper";
+  } else if (computerChoiceNumber <= 0.6) {
+    computerChoice = "scissors";
+  } else if (computerChoiceNumber <= 0.8) {
+    computerChoice = "lizard";
+  } else {
+    computerChoice = "spock";
+  }
+}
+
+// Display Computer choice
+function displayComputerChoice() {
+  switch (computerChoice) {
+    case "rock":
+      computerRock.classList.add("selected");
+      computerChoiceEl.textContent = " ---Rock";
+      break;
+    case "paper":
+      computerPaper.classList.add("selected");
+      computerChoiceEl.textContent = " ---Paper";
+      break;
+    case "scissors":
+      computerScissors.classList.add("selected");
+      computerChoiceEl.textContent = " ---Scissors";
+      break;
+    case "lizard":
+      computerLizard.classList.add("selected");
+      computerChoiceEl.textContent = " ---Lizard";
+      break;
+    case "spock":
+      computerSpock.classList.add("selected");
+      computerChoiceEl.textContent = " ---Spock";
+      break;
+    default:
+      break;
+  }
+  console.log(computerChoice);
+}
+
+// call functions to process turn
+function checkResult() {
+  // reset selected before make select
+  resetSelected();
+  computerRandomChoice();
+  displayComputerChoice();
+}
+
 // Passing player choice value and style that choice
 function select(choice) {
+  checkResult();
   // Update player choice and style it
   switch (choice) {
     case "rock":
