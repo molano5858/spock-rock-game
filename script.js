@@ -18,7 +18,11 @@ const computerSpock = document.getElementById("computerSpock");
 
 const allGameIcons = document.querySelectorAll(".far");
 
+const resetButton = document.querySelector(".reset-container");
+
 let computerChoice = "";
+let playerScoreNumber = 0;
+let computerScoreNumber = 0;
 
 const choices = {
   rock: { name: "Rock", defeats: ["scissors", "lizard"] },
@@ -77,20 +81,40 @@ function displayComputerChoice() {
     default:
       break;
   }
-  console.log(computerChoice);
+}
+
+// Update the both player´s score
+function updateScore(choice) {
+  console.log("user choice", choice);
+  console.log("computer choice", computerChoice);
+  if (choice === computerChoice) {
+    resultText.textContent = "It´s a tie";
+  } else {
+    const userWins = choices[choice].defeats.includes(computerChoice);
+    if (userWins) {
+      playerScoreNumber++;
+      playerScoreEl.textContent = playerScoreNumber;
+      resultText.textContent = "You Won";
+    } else {
+      computerScoreNumber++;
+      computerScoreEl.textContent = computerScoreNumber;
+      resultText.textContent = "Computer won";
+    }
+  }
 }
 
 // call functions to process turn
-function checkResult() {
+function checkResult(choice) {
   // reset selected before make select
   resetSelected();
   computerRandomChoice();
   displayComputerChoice();
+  updateScore(choice);
 }
 
 // Passing player choice value and style that choice
 function select(choice) {
-  checkResult();
+  checkResult(choice);
   // Update player choice and style it
   switch (choice) {
     case "rock":
@@ -117,3 +141,15 @@ function select(choice) {
       break;
   }
 }
+
+// reset the game
+function reset() {
+  playerScoreNumber = 0;
+  computerScoreNumber = 0;
+  computerScoreEl.textContent = computerScoreNumber;
+  playerScoreEl.textContent = playerScoreNumber;
+  resetSelected();
+}
+
+// Event listener for reset the game
+resetButton.addEventListener("click", reset);
