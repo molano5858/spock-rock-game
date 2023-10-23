@@ -94,6 +94,8 @@ p {
   box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.2);
   margin: 24px auto 8px;
   padding: 4px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .reset-icon {
