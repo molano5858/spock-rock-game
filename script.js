@@ -85,8 +85,6 @@ function displayComputerChoice() {
 
 // Update the both player´s score
 function updateScore(choice) {
-  console.log("user choice", choice);
-  console.log("computer choice", computerChoice);
   if (choice === computerChoice) {
     resultText.textContent = "It´s a tie";
   } else {
