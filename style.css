@@ -58,6 +58,7 @@ h1 {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 h2 {
@@ -71,7 +72,18 @@ p {
 .far {
   font-size: 40px;
   user-select: none;
+  margin: 4px;
+  border-radius: 4px;
+  padding: 12px;
 }
+
+.selected {
+  color: rgb(0, 255, 242);
+  background-color: var(--color2);
+  box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.5);
+  border: 1px solid white;
+}
+
 .reset-container {
   display: flex;
   justify-content: center;
@@ -114,10 +126,6 @@ p {
 
   .player-container {
     margin: 50px 0 25px 25px;
-  }
-
-  .far {
-    margin-right: 20px;
   }
 
   .reset-icon {
